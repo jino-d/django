@@ -1,19 +1,31 @@
-<!DOCTYPE html>
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
-<html>
-    <head>
-        <title>Rango</title>
-    </head>
-     <body>
-        <h1>Rango says...</h1>
+
+{% block body_block %}
+<div class="jumbotron p-4">
+    <div class="container">
         <div>
-            here is the About page. <br/>
-            <strong>{{boldmessage}}</strong><br/>
+            <h1 class="h1">
+                Rango says...
+                <br>
+            </h1>
+            <div>
+                here is the About page. <br />
+                <strong>{{boldmessage}}</strong><br />
+            </div>
+            <div>
+                <p>Visits: {{visits}}</p>
+            </div>
+
         </div>
-        <div>
-            <a href="/rango">Home</a><br/>
-            <img src="{{MEDIA_URL}}cat.jpg"
-                alt="Picture of a Cat." />
-        </div>
-    </body>
-</html>
+    </div>
+</div>
+<div>
+    <img src="{{MEDIA_URL}}cat.jpg" alt="Picture of a Cat." />  
+</div>
+<button class="btn btn-primary" id="about-btn">
+    Click me - I run on vanilla JavaScript!
+</button>
+<p>This is some text for the JQuery example.</p>
+<div id="msg">Hello! I'm a further example for JQuery testing.</div>
+{% endblock  %}

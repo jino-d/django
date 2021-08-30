@@ -1,0 +1,18 @@
+{% if pages %}
+    <ul>
+        {% for page in pages %}
+        <li>
+            <a href="{% url 'rango:goto' %}?page_id={{ page.id }}">{{ page.title }}</a>
+                <span class="badge badge-secondary">
+                    {% if page.views > 1 %}
+                        ({{ page.views }} views)
+                    {% elif page.views <= 1 %}
+                        ({{ page.views }} view)
+                    {% endif %}
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+<strong>No pages currently in category.</strong>
+{% endif %}
